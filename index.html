@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Raja Kopi Nusantara — Profesional</title>
+    <meta
+      name="description"
+      content="Raja Kopi Nusantara — Kopi premium, pilihan petani lokal. Landing page profesional, modern, dan responsif."
+    />
+
+    <!-- Tailwind (dev CDN). For production compile Tailwind. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- GSAP for subtle animations -->
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="antialiased">
+    <!-- NAVBAR -->
+    <header class="nav flex justify-center">
+      <div
+        id="navWrap"
+        class="nav-glass max-w-6xl w-full px-6 py-3 flex items-center justify-between gap-4 shadow-sm"
+      >
+        <a href="#home" class="flex items-center gap-3">
+          <div class="w-10 h-10">
+            <img src="gambar/logo-rkn.png" alt="logo-rkn" />
+          </div>
+          <div class="hidden sm:block">
+            <div class="text-sm font-semibold">Raja Kopi Nusantara</div>
+            <div class="text-xs text-[var(--muted)]">Signature Coffee</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#produk" class="nav-link">Produk</a>
+          <a href="#testimoni" class="nav-link">Testimoni</a>
+          <a href="#about" class="nav-link">Tentang</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="#produk"
+            class="hidden md:inline-block px-4 py-2 rounded-full border"
+            >Belanja</a
+          >
+          <button id="btnMenu" class="md:hidden p-2 rounded-md">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile menu (hidden) -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/40" onclick="closeMobile()"></div>
+      <div class="absolute right-0 top-0 w-3/4 max-w-xs h-full bg-white p-6">
+        <button
+          class="mb-6 px-3 py-2 rounded bg-gray-100"
+          onclick="closeMobile()"
+        >
+          Close
+        </button>
+        <ul class="space-y-4 text-lg font-semibold">
+          <li><a href="#home" onclick="closeMobile()">Home</a></li>
+          <li><a href="#produk" onclick="closeMobile()">Produk</a></li>
+          <li><a href="#testimoni" onclick="closeMobile()">Testimoni</a></li>
+          <li><a href="#about" onclick="closeMobile()">Tentang</a></li>
+          <li><a href="#kontak" onclick="closeMobile()">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="pt-32">
+      <!-- HERO: longer, professional -->
+      <section
+        id="home"
+        class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+      >
+        <div class="space-y-6">
+          <div class="inline-block px-3 py-1 rounded-full text-xs border">
+            Signature Collection
+          </div>
+          <h1 class="serif text-4xl md:text-5xl font-semibold leading-tight">
+            Raja Kopi Nusantara — Kopi Premium<br class="hidden md:block" />Rasa
+            Otentik, Disangrai Tradisional
+          </h1>
+
+          <p class="text-[var(--muted)] max-w-xl">
+            Kami memilih biji secara selektif dari kebun terbaik di Nusantara
+            dan menyangrai setiap batch secara tradisional. Hasilnya? Profil
+            rasa yang kaya — coklat, rempah, dan aftertaste manis yang panjang.
+          </p>
+
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="#produk"
+              class="px-5 py-3 rounded-full bg-black text-white font-medium"
+              >Lihat Produk</a
+            >
+            <a href="#kontak" class="px-5 py-3 rounded-full border"
+              >Hubungi Kami</a
+            >
+            <div class="text-sm text-[var(--muted)]">
+              Gratis ongkir ke seluruh indonesia > Tanpa min pembelian
+            </div>
+          </div>
+          <!-- 
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md">
+            <div class="text-sm"><strong>Asal</strong><div class="text-[var(--muted)]">Aceh, Toraja</div></div>
+            <div class="text-sm"><strong>Jenis</strong><div class="text-[var(--muted)]">Arabika • Robusta</div></div>
+            <div class="text-sm"><strong>Sangrai</strong><div class="text-[var(--muted)]">Kayu Tradisional</div></div>
+          </div> -->
+        </div>
+
+        <div class="flex items-center justify-center">
+          <div
+            class="w-full max-w-md rounded-xl overflow-hidden shadow-lg product-card"
+          >
+            <img
+              src="gambar/produk-utama.png"
+              alt="Produk utama"
+              class="w-full object-contain bg-white"
+            />
+            <div class="p-6 bg-white">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="text-sm text-[var(--muted)]">
+                    Kopi Bubuk Hitam — 305g
+                  </div>
+                  <div class="serif text-xl font-semibold">Rp 18.900</div>
+                </div>
+                <div class="flex flex-col items-end gap-2">
+                  <a
+                    target="_blank"
+                    class="px-3 py-2 rounded-full bg-black text-white"
+                    href="https://shopee.co.id/KOPI-BUBUK-SANGRAI-KAYU-BAKAR-KOPI-TUBRUK-KOPI-BUBUK-ARABICA-KOPI-BUBUK-ROBUSTA-AROMA-RASA-JOS-i.233933521.50701791173?extraParams=%7B%22display_model_id%22%3A415165408864%7D"
+                  >
+                    Beli Sekarang
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="divider my-6"></div>
+      </div>
+
+      <!-- FEATURES / WHY CHOOSE US -->
+      <section class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 border rounded-lg text-center">
+            <div class="text-3xl font-semibold serif">Rasa Otentik</div>
+            <p class="mt-3 text-[var(--muted)]">
+              Proses sangrai tradisional memberikan kedalaman dan karakter unik
+              pada setiap cangkir.
+            </p>
+          </div>
+
+          <div class="p-6 border rounded-lg text-center">
+            <div class="text-3xl font-semibold serif">Dukungan Petani</div>
+            <p class="mt-3 text-[var(--muted)]">
+              Kemitraan langsung dengan petani memastikan kualitas dan
+              keberlanjutan.
+            </p>
+          </div>
+
+          <div class="p-6 border rounded-lg text-center">
+            <div class="text-3xl font-semibold serif">Pengiriman Cepat</div>
+            <p class="mt-3 text-[var(--muted)]">
+              Pengemasan profesional dan pengiriman cepat ke seluruh Indonesia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIDEO SECTION: 4 VIDEOS -->
+      <!-- VIDEO SECTION: 4 VIDEOS -->
+      <section id="video" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-semibold">Video</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- video 1 -->
+          <div class="border rounded-xl overflow-hidden bg-black">
+            <video
+              controls
+              autoplay
+              muted
+              playsinline
+              loop
+              class="w-full h-48 object-cover"
+            >
+              <source src="video/video1.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <!-- video 2 -->
+          <div class="border rounded-xl overflow-hidden bg-black">
+            <video
+              controls
+              autoplay
+              muted
+              playsinline
+              loop
+              class="w-full h-48 object-cover"
+            >
+              <source src="video/video2.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <!-- video 3 -->
+          <div class="border rounded-xl overflow-hidden bg-black">
+            <video
+              controls
+              autoplay
+              muted
+              playsinline
+              loop
+              class="w-full h-48 object-cover"
+            >
+              <source src="video/video3.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <!-- video 4 -->
+          <div class="border rounded-xl overflow-hidden bg-black">
+            <video
+              controls
+              autoplay
+              muted
+              playsinline
+              loop
+              class="w-full h-48 object-cover"
+            >
+              <source src="video/video4.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="divider my-6"></div>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <section id="produk" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-semibold">Produk Unggulan</h2>
+          <p class="mt-2 text-[var(--muted)]">
+            Pilih dari single origin hingga signature blends.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- product card -->
+          <article class="border rounded-xl p-6 product-card">
+            <img
+              src="gambar/ori.jpeg"
+              class="w-full h-44 object-contain mb-4"
+              alt="Raja Blend"
+            />
+            <h3 class="font-semibold serif text-lg">Kopi Bubuk Hitam — 305g</h3>
+            <p class="text-[var(--muted)] mt-2">
+              Seimbang, aroma coklat, aftertaste manis.
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-semibold">Rp 18.900</div>
+              <a target="_blank" class="px-3 py-2 rounded-full border" href="https://shopee.co.id/KOPI-BUBUK-SANGRAI-KAYU-BAKAR-KOPI-TUBRUK-KOPI-BUBUK-ARABICA-KOPI-BUBUK-ROBUSTA-AROMA-RASA-JOS-i.233933521.50701791173?extraParams=%7B%22display_model_id%22%3A415165408864%7D">Beli Sekarang</a>
+            </div>
+          </article>
+
+          <article class="border rounded-xl p-6 product-card">
+            <img
+              src="gambar/premium.jpeg"
+              class="w-full h-44 object-contain mb-4"
+              alt="Raja Blend"
+            />
+            <h3 class="font-semibold serif text-lg">Kopi Bubuk Premium — 305g</h3>
+            <p class="text-[var(--muted)] mt-2">
+              Seimbang, aroma coklat, aftertaste manis.
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-semibold">Rp 14.000</div>
+              <a target="_blank" class="px-3 py-2 rounded-full border" href="https://shopee.co.id/KOPI-BUBUK-SANGRAI-KAYU-BAKAR-KOPI-TUBRUK-KOPI-BUBUK-ARABICA-KOPI-BUBUK-ROBUSTA-AROMA-RASA-JOS-i.233933521.50701791173?extraParams=%7B%22display_model_id%22%3A415165408864%7D">Beli Sekarang</a>
+            </div>
+          </article>
+
+          <article class="border rounded-xl p-6 product-card">
+            <img
+              src="https://down-id.img.susercontent.com/file/id-11134207-8224x-mh9zu1pxvvuwc3.webp"
+              class="w-full h-44 object-contain mb-4"
+              alt="Raja Blend"
+            />
+            <h3 class="font-semibold serif text-lg">Kopi Bubuk Hitam — 100g</h3>
+            <p class="text-[var(--muted)] mt-2">
+              Seimbang, aroma coklat, aftertaste manis.
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-semibold">Rp 7.000</div>
+              <a target="_blank" class="px-3 py-2 rounded-full border" href="https://shopee.co.id/KOPI-BUBUK-SANGRAI-KAYU-BAKAR-KOPI-TUBRUK-KOPI-BUBUK-ARABICA-KOPI-BUBUK-ROBUSTA-AROMA-RASA-JOS-i.233933521.50701791173?extraParams=%7B%22display_model_id%22%3A415165408864%7D">Beli Sekarang</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="divider my-6"></div>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimoni" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-semibold">Testimoni</h2>
+          <p class="mt-2 text-[var(--muted)]">Apa kata pelanggan kami</p>
+        </div>
+
+        <div class="relative">
+          <div id="slides" class="overflow-hidden">
+            <div
+              class="flex transition-transform duration-500"
+              style="width: 300%"
+            >
+              <blockquote class="w-full p-8 bg-white border rounded-xl mr-6">
+                “Terima kasih seller kopi udh sampek di rumah,,,buat jual di
+                warkop banyak yg suka kok,,,datang lgsg di cobak,, next time
+                pasti order lg”
+                <div class="mt-4 text-sm text-[var(--muted)]">
+                  — Siti, Jakarta
+                </div>
+              </blockquote>
+              <blockquote class="w-full p-8 bg-white border rounded-xl mr-6">
+                “akhirnya saya menemukan kopi yang saya inginkan.”
+                <div class="mt-4 text-sm text-[var(--muted)]">
+                  — Andi, Bandung
+                </div>
+              </blockquote>
+              <blockquote class="w-full p-8 bg-white border rounded-xl mr-6">
+                “Kopinya enak pengiriman cepat seller responsif, mantab 👍🏻”
+                <div class="mt-4 text-sm text-[var(--muted)]">
+                  — Rina, Surabaya
+                </div>
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center mt-6 dots">
+            <button onclick="goToSlide(0)" class="active"></button>
+            <button onclick="goToSlide(1)"></button>
+            <button onclick="goToSlide(2)"></button>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="divider my-6"></div>
+      </div>
+
+      <!-- ABOUT -->
+      <section
+        id="about"
+        class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+      >
+        <div>
+          <h3 class="text-2xl font-semibold serif">
+            Tentang Raja Kopi Nusantara
+          </h3>
+          <p class="mt-4 text-[var(--muted)]">
+            Berasal dari kecintaan pada kopi, kami bermitra langsung dengan
+            petani di daerah dataran tinggi. Fokus kami: kualitas, transparansi,
+            dan rasa otentik. Setiap batch disangrai secara tradisional untuk
+            menonjolkan karakter terbaik biji.
+          </p>
+
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+            <li>• Kopi Pilihan dari Petani Nusantara</li>
+            <li>• Proses sangrai tradisional dengan Kayu Bakar</li>
+            <li>• Aroma Kuat dan Cita Rasa Premium</li>
+            <li>• Kemasan profesional & ramah lingkungan</li>
+          </ul>
+        </div>
+        <div class="flex">
+          <img
+            src="gambar/tengah-atas.jpg"
+            alt="about"
+            class="w-full h-64 object-contain rounded-lg border"
+          />
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="divider my-6"></div>
+      </div>
+
+      <!-- CONTACT -->
+      <section id="kontak" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-semibold">Hubungi Kami</h3>
+            <p class="mt-3 text-[var(--muted)]">
+              Punya pertanyaan tentang produk, kemitraan, atau bulk order?
+              Hubungi tim kami.
+            </p>
+
+            <div class="mt-6 space-y-3 text-sm">
+              <div>
+                <strong>Email:</strong> swalayan55-rajakopinusantara@yahoo.com
+              </div>
+              <div><strong>Telepon/WA:</strong> +62 857-3542-3500</div>
+              <div><strong>Alamat:</strong> Kediri</div>
+            </div>
+          </div>
+
+          <form
+            class="p-6 border rounded-lg bg-white"
+            onsubmit="event.preventDefault(); alert('Terima kasih — pesan dikirim!');"
+          >
+            <div class="grid gap-3">
+              <input required placeholder="Nama" class="border p-3 rounded" />
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                class="border p-3 rounded"
+              />
+              <textarea
+                required
+                placeholder="Pesan"
+                class="border p-3 rounded h-32"
+              ></textarea>
+              <button class="px-4 py-3 rounded-full bg-black text-white">
+                Kirim Pesan
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t mt-12">
+      <div
+        class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <div>
+          <div class="font-semibold">Raja Kopi Nusantara</div>
+          <div class="text-sm text-[var(--muted)] mt-1">
+            © 2025 • Semua hak cipta.
+          </div>
+        </div>
+
+        <div class="flex gap-6 text-sm text-[var(--muted)]">
+          <a href="#">Instagram</a>
+          <a
+            href="https://www.tokopedia.com/nativida-store/bisa-cod-kopi-bubuk-nusantara-bubuk-kopi-hitam-premium-1733349190395856755?extParam=src%3Dshop%26whid%3D9437795&aff_unique_id=&channel=others&chain_key="
+            target="_blank"
+            >Tokopedia</a
+          >
+          <a href="https://shopee.co.id/rajakopinusantara1" target="_blank"
+            >Shopee</a
+          >
+        </div>
+
+        <div class="text-sm text-[var(--muted)]">Made with ♥ in Indonesia</div>
+      </div>
+    </footer>
+
+    <script>
+      // mobile menu
+      document
+        .getElementById("btnMenu")
+        .addEventListener("click", () =>
+          document.getElementById("mobileMenu").classList.remove("hidden")
+        );
+      function closeMobile() {
+        document.getElementById("mobileMenu").classList.add("hidden");
+      }
+
+      // testimonial slider (simple)
+      let currentSlide = 0;
+      function goToSlide(i) {
+        const container = document.querySelector("#slides > div");
+        const width = container.clientWidth / 3; // since width:300%
+        container.style.transform = `translateX(-${i * width}px)`;
+        document
+          .querySelectorAll(".dots button")
+          .forEach((b, idx) => b.classList.toggle("active", idx === i));
+        currentSlide = i;
+      }
+      setInterval(() => {
+        goToSlide((currentSlide + 1) % 3);
+      }, 5000);
+
+      // small entrance animation
+      window.addEventListener("load", () => {
+        gsap.from("header .nav-glass", { y: -10, opacity: 0, duration: 0.6 });
+        gsap.from(".serif", { y: 8, opacity: 0, duration: 0.6, stagger: 0.06 });
+        gsap.from(".product-card", {
+          y: 18,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.08,
+        });
+      });
+
+      // smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (href.length > 1) {
+            e.preventDefault();
+            document
+              .querySelector(href)
+              .scrollIntoView({ behavior: "smooth", block: "start" });
+            closeMobile();
+          }
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // hero fade-in
+
+      gsap.from(".hero-title", { opacity: 0, y: 40, duration: 1 });
+      gsap.from(".hero-sub", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
+      gsap.from(".hero-img", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
+        delay: 0.6,
+      });
+
+      // scroll animations sections
+      gsap.utils.toArray(".section").forEach((sec) => {
+        gsap.from(sec, {
+          opacity: 0,
+          y: 70,
+          duration: 0.9,
+          scrollTrigger: { trigger: sec, start: "top 85%" },
+        });
+      });
+    </script>
+  </body>
+</html>
