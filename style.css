@@ -38,15 +38,6 @@ header.nav {
   );
 }
 
-/* product card hover */
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(12, 12, 12, 0.08);
-}
-.product-card {
-  transition: all 0.28s ease;
-}
-
 /* testimonial slider simple */
 .dots button {
   width: 8px;
